@@ -32,6 +32,7 @@ class FullScreenApp(object):
         # self.frame = tkinter.Frame(self.root)
         self.root.attributes("-topmost",True)
         self.root.attributes("-alpha", 1)
+        self.root.attributes("-fullscreen", True)
         filename = 'auto_script_for_py/temp/temp1.png'
         #grab.save(filename)
         #grab.close()
@@ -45,7 +46,7 @@ class FullScreenApp(object):
         image = ImageGrab.grab()
         im = ImageTk.PhotoImage(image)  
         #grab.close()
-        bit = canvas.create_image(self.root.winfo_screenwidth(),self.root.winfo_screenheight(),image = im)    
+        bit = canvas.create_image(self.root.winfo_screenwidth()/2,self.root.winfo_screenheight()/2,image = im)    
         canvas.move(bit,0,0)
         canvas.pack()   
 
