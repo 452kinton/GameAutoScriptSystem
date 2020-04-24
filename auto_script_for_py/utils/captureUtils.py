@@ -16,7 +16,7 @@ def defualtCallback(rect):
     print("x1,y1:"+str(rect[0])+","+str(rect[1]))
     print("x2,y2:"+str(rect[2])+","+str(rect[3]))
     img = ImageGrab.grab(bbox = rect)
-    img.save("auto_script_for_py/temp/capture.png")
+    img.save("temp/capture.png")
     img.close()
 
 def startCapture(callback = defualtCallback):
@@ -63,8 +63,8 @@ class FullScreenApp(object):
     def right_btn_click(self,event):
         #print("ok")
         self.status = 'default'
-        self.callback((self.startX,self.startY,self.endX,self.endY))
-        self.root.destory()
+        #self.callback((-1,-1,-1,-1))
+        self.root.quit()
     
     def left_btn_click(self,event):
         self.status = 'capturing'
@@ -85,7 +85,7 @@ class FullScreenApp(object):
     def move_with_left_btn_press(self,event):
         if(self.rect != None):
             self.canvas.delete(self.rect)
-        self.rect = self.canvas.create_rectangle(self.startX,self.startY,event.x,event.y)
+        self.rect = self.canvas.create_rectangle(self.startX,self.startY,event.x,event.y,outline='red')
         
 
 
