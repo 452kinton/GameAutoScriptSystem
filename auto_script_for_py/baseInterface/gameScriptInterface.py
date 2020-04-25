@@ -32,14 +32,11 @@ def mouse_move_with_pressing(startPoint,endPoint):
 def find_pic_position_on_screen(image_path,tolerance = 0.6):
     rubbish=autopy.bitmap.Bitmap.open(image_path)
     screen=autopy.bitmap.capture_screen()
-    screen.save("temp/screen.png");
-    screen=autopy.bitmap.Bitmap.open("temp/screen.png")
+    screen.save("temp/screen.png");   
+    screen=autopy.bitmap.Bitmap.open("temp/screen.png") 
     pos=screen.find_bitmap(rubbish)
     print(pos)
-    if pos:
-        return pos
-    else:
-        return [-1,-1]
+    return pos
 
 
 #截取屏幕某位置图片
@@ -50,4 +47,4 @@ def capture_entire_screen():
     return autopy.bitmap.capture_screen()
     
 
-#pos = find_pic_position_on_screen("temp/3.png",0.2)
+
